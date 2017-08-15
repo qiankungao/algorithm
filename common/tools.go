@@ -2,12 +2,13 @@ package common
 
 import (
 	//	"fmt"
-	"io/ioutil"
-	"log"
+	//	"io/ioutil"
+	//	"log"
 	"math/rand"
-	"path/filepath"
-	"strconv"
-	"strings"
+	//	"path/filepath"
+	//	"strconv"
+	//	"strings"
+	"math"
 	"time"
 )
 
@@ -36,38 +37,32 @@ func GenerateRand(k, rang int) (rint []int) {
 	}
 	return
 }
+func MaxArray(arr []float64) float64 {
+	var max float64
 
-//从文件中读取原始数据
-func ReadData(path string) []byte {
-	fp, err := filepath.Abs(path)
-	if err != nil {
-		log.Fatal(err)
+	max = -math.MaxFloat64
+	for _, v := range arr {
+		if v > max {
+			max = v
+		}
 	}
-	content, err := ioutil.ReadFile(fp)
-	if err != nil {
-		log.Fatal(err)
-	}
-	return content
+	return max
 }
 
-//对原始数据进行初步处理
-func DealRawData(content string) ([][]float64, []string) {
-
-	lines := strings.Split(content, "\n")
-	rawData := make([][]float64, len(lines))
-	rawLable := make([]string, len(lines))
-
-	for index, line := range lines {
-		vector := strings.Split(line, ",")
-		lable := vector[len(vector)-1]
-		vector = vector[:len(vector)-1]
-		floatVector := make([]float64, len(vector))
-		for jj := range vector {
-			floatVector[jj], _ = strconv.ParseFloat(vector[jj], 64)
+func MinArray(arr []float64) (float64, float64) {
+	var min float64
+	min = math.MaxFloat64
+	for _, v := range arr {
+		if v < min {
+			min = v
 		}
-		rawData[index] = floatVector
-		rawLable[index] = lable
-
 	}
-	return rawData, rawLable
+
+	max := -math.MaxFloat64
+	for _, v := range arr {
+		if v > max {
+			max = v
+		}
+	}
+	return min, max - min
 }
