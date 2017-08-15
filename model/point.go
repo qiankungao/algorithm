@@ -6,6 +6,7 @@ import (
 )
 
 type Point struct {
+	Lable string
 	Entry []float64
 }
 

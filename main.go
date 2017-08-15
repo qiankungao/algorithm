@@ -3,31 +3,23 @@ package main
 
 import (
 	"BigDataAlgorithm/algorithm"
-	"BigDataAlgorithm/model"
+	"BigDataAlgorithm/common"
+	//	"BigDataAlgorithm/model"
 	"fmt"
 )
 
 func main() {
-	data := []model.Point{}
-	data = append(data, model.Point{[]float64{1.0, 3.0}})
-	data = append(data, model.Point{[]float64{43.0, 7.0}})
-	data = append(data, model.Point{[]float64{2.0, 12.0}})
-	data = append(data, model.Point{[]float64{12.0, 45.0}})
-	data = append(data, model.Point{[]float64{5.0, 2.0}})
-	data = append(data, model.Point{[]float64{12.0, 7.0}})
-	data = append(data, model.Point{[]float64{5.0, 8.0}})
-	data = append(data, model.Point{[]float64{34.0, 65.0}})
-	data = append(data, model.Point{[]float64{1200.0, 700.0}})
-	data = append(data, model.Point{[]float64{500.0, 800.0}})
-	data = append(data, model.Point{[]float64{340.0, 650.0}})
+	path := "data/test1.csv"
+	content := common.ReadData(path)
+	clus := algorithm.Kmeans(string(content), 2, 0.001)
+	for e := range clus {
+		fmt.Println("center:", clus[e].Center)
+		for _, point := range clus[e].Points {
+			fmt.Println("Lable:", point.Lable, " ", point.Entry)
+		}
 
-	centroids := algorithm.Kmeans(data, 4, 0.001)
-	for e := range centroids {
-		fmt.Println("center:", centroids[e].Center)
-		fmt.Println("elements:", centroids[e].Points)
 		fmt.Println("##################################")
 	}
-
 }
 
 //package main

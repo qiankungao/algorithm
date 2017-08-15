@@ -20,6 +20,7 @@ type Cluster struct {
 //	}
 func seed(data []model.Point, k int) (clusters []Cluster) {
 	key := common.GenerateRand(k, len(data))
+	//	key := []int{0, 1}
 
 	for i := 0; i < k; i++ {
 		clusters = append(clusters, Cluster{Center: data[key[i]]})
@@ -41,24 +42,24 @@ func (c *Cluster) NewCenter() float64 {
 		new_center[i] /= float64(len(c.Points))
 	}
 	old_center := c.Center
-	c.Center = model.Point{new_center}
+	c.Center = model.Point{Entry: new_center}
 	return old_center.EuclideanDistance(c.Center)
 }
 
-//for i := range data {
-//			min_distance := math.MaxFloat64
-//			z := 0
-//			for v, e := range Centroids {
-//				distance := data[i].distanceTo(e.center)
-//				if distance < min_distance {
-//					min_distance = distance
-//					z = v
-//				}
-//			}
-//			Centroids[z].Points = append(Centroids[z].Points, data[i])
-//		}
-func Kmeans(data []model.Point, k int, threshold float64) []Cluster {
-	clusters := seed(data, k)
+func Kmeans(content string, k int, threshold float64) []Cluster {
+	rawData, rawLable := common.DealRawData(content)
+	data := make([]model.Point, len(rawData))
+	for ii, value := range rawData {
+		data[ii].Lable = rawLable[ii]
+		data[ii].Entry = value
+	}
+	seeds := seed(data, k)
+	clus := kmeans(data, seeds, threshold)
+	return clus
+}
+
+func kmeans(data []model.Point, clusters []Cluster, threshold float64) []Cluster {
+	//	clusters := seed(data, k)
 
 	flag := false
 	for !flag {
