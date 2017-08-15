@@ -6,6 +6,8 @@ import (
 	"BigDataAlgorithm/common"
 	//	"BigDataAlgorithm/model"
 	"fmt"
+	//	"math/rand"
+	//	"time"
 )
 
 func main() {
@@ -20,6 +22,17 @@ func main() {
 
 		fmt.Println("##################################")
 	}
+	//	content := common.ReadData(path)
+	//	rawData, rawLable := common.DealRawData(string(content))
+	//	data := make([]model.Point, len(rawData))
+	//	for ii, value := range rawData {
+	//		data[ii].Lable = rawLable[ii]
+	//		data[ii].Entry = value
+	//	}
+	//	seeds := algorithm.Seed(data, 2)
+
+	//	fmt.Println("seeds:", seeds)
+
 }
 
 //package main

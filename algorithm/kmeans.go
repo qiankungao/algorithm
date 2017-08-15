@@ -5,7 +5,7 @@ import (
 	"BigDataAlgorithm/model"
 	//	"fmt"
 	"math"
-	//	"math/rand"
+	"math/rand"
 	//	"time"
 )
 
@@ -15,10 +15,7 @@ type Cluster struct {
 }
 
 //初始化k个簇   先采用简单的 即随机选择K 个点
-//for i := uint64(0); i < k; i++ {
-//		Centroids = append(Centroids, Centroid{center: data[rand.Intn(len(data))]})
-//	}
-func seed(data []model.Point, k int) (clusters []Cluster) {
+func RandSeed(data []model.Point, k int) (clusters []Cluster) {
 	key := common.GenerateRand(k, len(data))
 	//	key := []int{0, 1}
 
@@ -26,6 +23,47 @@ func seed(data []model.Point, k int) (clusters []Cluster) {
 		clusters = append(clusters, Cluster{Center: data[key[i]]})
 	}
 	return
+}
+
+//Initialize the seed with K-Means++
+func Seed(data []model.Point, k int) []Cluster {
+	clusters := make([]Cluster, k)
+	//先随机生成一个种子点
+	//	r := rand.New(rand.NewSource(time.Now().UnixNano()))
+	clusters[0].Center = data[rand.Intn(len(data))]
+	d := make([]float64, len(data))
+	//求其他的k-1个质点
+	for index := 1; index < k; index++ {
+		var sum float64
+		for kk, p := range data {
+			_, dis := near(p, clusters[:index])
+			d[kk] = dis
+			sum += d[kk]
+		}
+		target := rand.Float64() * sum
+		jj := 0
+		for sum = d[0]; sum < target; sum += d[jj] {
+			jj++
+		}
+		clusters[index].Center = data[jj]
+	}
+
+	return clusters
+
+}
+
+//calculate the distance from point to the center of cluster
+func near(data model.Point, clusters []Cluster) (int, float64) {
+	index := 0
+	min_dis := math.MaxFloat64
+	for ind, v := range clusters {
+		dis := data.EuclideanDistance(v.Center)
+		if dis < min_dis {
+			min_dis = dis
+			index = ind
+		}
+	}
+	return index, min_dis
 }
 
 //重新计算每一簇的质心
@@ -53,7 +91,7 @@ func Kmeans(content string, k int, threshold float64) []Cluster {
 		data[ii].Lable = rawLable[ii]
 		data[ii].Entry = value
 	}
-	seeds := seed(data, k)
+	seeds := Seed(data, k)
 	clus := kmeans(data, seeds, threshold)
 	return clus
 }
@@ -65,15 +103,7 @@ func kmeans(data []model.Point, clusters []Cluster, threshold float64) []Cluster
 	for !flag {
 		//计算每一个点与质心的距离，选择最近的质心，并加入它
 		for i := range data {
-			min_dis := math.MaxFloat64
-			index := 0
-			for ind, v := range clusters {
-				dis := data[i].EuclideanDistance(v.Center)
-				if dis < min_dis {
-					min_dis = dis
-					index = ind
-				}
-			}
+			index, _ := near(data[i], clusters)
 			clusters[index].Points = append(clusters[index].Points, data[i])
 		}
 
