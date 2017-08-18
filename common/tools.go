@@ -8,6 +8,7 @@ import (
 	//	"path/filepath"
 	//	"strconv"
 	//	"strings"
+	"BigDataAlgorithm/model"
 	"math"
 	"time"
 )
@@ -65,4 +66,12 @@ func MinArray(arr []float64) (float64, float64) {
 		}
 	}
 	return min, max - min
+}
+
+// merge two sets of points
+func Merge(one, other []model.Point) []model.Point {
+	for _, point := range other {
+		one = append(one, point)
+	}
+	return one
 }

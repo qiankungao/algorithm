@@ -1,0 +1,43 @@
+DBSCAN
+Cluster # 0
+{[20 33 59] true 0}
+{[21 32 56] true 0}
+{[300 70 20] true 0}
+{[500 300 202] true 0}
+{[500 302 204] true 0}
+Cluster # 1
+{[0 11 21] true 0}
+{[0 12 20] true 0}
+Cluster # 2
+{[0 10 20] true 0}
+{[0 12 20] true 0}
+Cluster # 3
+{[0 10 20] true 0}
+Cluster # 4
+{[58 79 100] true 0}
+{[58 76 102] true 0}
+Cluster # 5
+{[58 76 102] true 0}
+Cluster # 6
+#############################################
+DBSCAN
+Cluster # 0
+{[20 33 59] true 0}
+{[21 32 56] true 0}
+{[300 70 20] true 0}
+{[500 300 202] true 0}
+{[500 302 204] true 0}
+Cluster # 1
+{[0 11 21] true 0}
+{[0 12 20] true 0}
+Cluster # 2
+{[0 10 20] true 0}
+{[0 12 20] true 0}
+Cluster # 3
+{[0 10 20] true 0}
+Cluster # 4
+{[58 79 100] true 0}
+{[58 76 102] true 0}
+Cluster # 5
+{[58 76 102] true 0}
+Cluster # 6

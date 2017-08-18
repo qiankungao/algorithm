@@ -16,8 +16,8 @@ type Cluster struct {
 
 //初始化k个簇   先采用简单的 即随机选择K 个点
 func RandSeed(data []model.Point, k int) (clusters []Cluster) {
-	key := common.GenerateRand(k, len(data))
-	//	key := []int{0, 1}
+	//	key := common.GenerateRand(k, len(data))
+	key := []int{1, 9, 12}
 
 	for i := 0; i < k; i++ {
 		clusters = append(clusters, Cluster{Center: data[key[i]]})
@@ -86,12 +86,15 @@ func (c *Cluster) NewCenter() float64 {
 
 func Kmeans(content string, k int, threshold float64) []Cluster {
 	rawData, rawLable := common.DealRawData(content)
+	//数据标准化
+	rawData = common.StandarData(rawData)
 	data := make([]model.Point, len(rawData))
 	for ii, value := range rawData {
 		data[ii].Lable = rawLable[ii]
 		data[ii].Entry = value
 	}
-	seeds := Seed(data, k)
+	//	seeds := Seed(data, k)
+	seeds := RandSeed(data, k)
 	clus := kmeans(data, seeds, threshold)
 	return clus
 }

@@ -6,6 +6,7 @@ import (
 	"log"
 	//	"math/rand"
 
+	"math"
 	"path/filepath"
 	"strconv"
 	"strings"
@@ -62,9 +63,16 @@ func StandarData(rawData [][]float64) [][]float64 {
 		for k := 0; k < len(rawData); k++ {
 
 			rawData[k][i] = (rawData[k][i] - min) / diff
+			rawData[k][i] = RoundData(rawData[k][i], 2)
 
 		}
 	}
 
 	return rawData
+}
+
+//四舍五入
+func RoundData(f float64, n int) float64 {
+	pow10_n := math.Pow10(n)
+	return math.Trunc((f+0.5/pow10_n)*pow10_n) / pow10_n
 }

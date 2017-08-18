@@ -6,8 +6,9 @@ import (
 )
 
 type Point struct {
-	Lable string
-	Entry []float64
+	Lable   string
+	Entry   []float64
+	Visited bool
 }
 
 //欧几里得距离
