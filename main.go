@@ -9,6 +9,7 @@ import (
 func main() {
 	point := model.Point{1, 2}
 	point2 := model.Point{3, 4.3}
+//$$$$$$$$$$$$$$$$$$$$$$$
 	point3 := model.Point{5.5, 6}
 	point4 := model.Point{4.3, 5.6}
 	cluster := model.Cluster{}
