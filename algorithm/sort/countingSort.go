@@ -32,3 +32,7 @@ func CountingSort(array []int) (sortArray []int) {
 	}
 	return
 }
+
+func CountingSort2() {
+	//Step:1 找出
+}
