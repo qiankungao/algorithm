@@ -9,7 +9,7 @@ type Cluster struct {
 	Center   Point
 }
 
-//Calculate cluster's Center
+//Calculate cluster'this Center
 func CalculateCenter(cluster Cluster) (center Point) {
 	var sumx, sumy float64
 
