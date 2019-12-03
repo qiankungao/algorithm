@@ -8,9 +8,22 @@ import (
 
 func main() {
 
-	var array = []int{91, 95, 90, 93, 95, 92, 98, 99, 99, 93}
-	fmt.Println("sort before:", array)
+	s := sort.NewStack()
 
-	sortArray := sort.CountingSort(array)
-	fmt.Println("sort after:", sortArray)
+	s.Push(9)
+	s.Push(3)
+	s.Push(5)
+	s.Push(7)
+	s.Push(1)
+	s.Push(2)
+	s.Traverse()
+	s.Pop()
+	fmt.Println()
+	s.Traverse()
+	fmt.Println()
+	fmt.Println("最小值", s.GetMin())
+	s.Pop()
+	s.Pop()
+	fmt.Println("最小值", s.GetMin())
+
 }
