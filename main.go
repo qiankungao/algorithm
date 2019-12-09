@@ -11,17 +11,7 @@ import (
 func main() {
 
 	//ops := "(){[]}"
-	result := leetCode.Intersection([]int{4, 9, 5}, []int{9, 4, 9, 8, 4})
+	result := leetCode.MissingNumber([]int{1, 0})
 	fmt.Println(result)
-
-	//str := make(map[string]int, 0)
-	//str["name"] = 1
-	//str["age"] = 2
-	//_, ok := str["name"]
-	//fmt.Println("ok:", ok)
-	//
-	//for k := range str {
-	//	fmt.Println("k:", k)
-	//}
 
 }
