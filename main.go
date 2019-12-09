@@ -9,6 +9,6 @@ import (
 func main() {
 
 	//ops := "(){[]}"
-	fmt.Println(leetCode.SortedSqSuares([]int{-7, -3, 2, 3, 11}))
+	fmt.Println(leetCode.ContainsDuplicate([]int{1, 1, 2, 3, 4}))
 
 }
