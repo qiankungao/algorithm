@@ -9,6 +9,6 @@ import (
 func main() {
 
 	//ops := "(){[]}"
-	fmt.Println(leetCode.MaxSubArray([]int{-2, 1, -3, 4, -1, 2, 1, -5, 4}))
+	fmt.Println(leetCode.MaxProfit([]int{7, 1, 5, 3, 6, 4}))
 
 }
