@@ -6,12 +6,23 @@ import (
 	"fmt"
 )
 
-//["MinStack","push","push","push","top","pop","getMin","pop","getMin","pop","push","top","getMin","push","top","getMin","pop","getMin"]
-//[[],[2147483646],[2147483646],[2147483647],[],[],[],[],[],[],[2147483647],[],[],[-2147483648],[],[],[],[]]
+//["MyCircularQueue","enQueue","Rear","Rear","deQueue","enQueue","Rear","deQueue","Front","deQueue","deQueue","deQueue"]
+//[[6],[6],[],[],[],[5],[],[],[],[],[],[]]
+//[null,true,6,6,true,true,5,true,-1,false,false,false]
 func main() {
 
 	//ops := "(){[]}"
-	result := leetCode.MissingNumber([]int{1, 0})
-	fmt.Println(result)
+	myQueue := leetCode.ConstructorQueue(3)
+	fmt.Println(myQueue.EnQueue(6))
+	fmt.Println(myQueue.Rear())
+	fmt.Println(myQueue.Rear())
+	fmt.Println(myQueue.DeQueue())
+	fmt.Println(myQueue.EnQueue(5))
+	fmt.Println(myQueue.Rear())
+	fmt.Println(myQueue.DeQueue())
+	fmt.Println(myQueue.Front())
+	fmt.Println(myQueue.DeQueue())
+	fmt.Println(myQueue.DeQueue())
+	fmt.Println(myQueue.DeQueue())
 
 }
