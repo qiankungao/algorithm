@@ -9,6 +9,6 @@ import (
 func main() {
 
 	//ops := "(){[]}"
-	fmt.Println(leetCode.GetRow(0))
+	fmt.Println(leetCode.SortedSqSuares([]int{-7, -3, 2, 3, 11}))
 
 }
