@@ -9,6 +9,6 @@ import (
 func main() {
 
 	//ops := "(){[]}"
-	fmt.Println(leetCode.ContainsDuplicate([]int{1, 1, 2, 3, 4}))
+	fmt.Println(leetCode.MaxSubArray([]int{-2, 1, -3, 4, -1, 2, 1, -5, 4}))
 
 }
