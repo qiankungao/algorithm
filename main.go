@@ -9,6 +9,6 @@ import (
 func main() {
 
 	//ops := "(){[]}"
-	fmt.Println(dp.ClimbStairs2(3))
+	fmt.Println(dp.MinimumTotal([][]int{{2}, {3, 4}, {6, 5, 7}, {4, 1, 8, 3}}))
 
 }
