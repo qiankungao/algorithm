@@ -2,13 +2,13 @@
 package main
 
 import (
-	"../BigDataAlgorithm/algorithm/leetCode"
+	"../BigDataAlgorithm/algorithm/leetCode/dp"
 	"fmt"
 )
 
 func main() {
 
 	//ops := "(){[]}"
-	fmt.Println(leetCode.MaxProfit([]int{7, 1, 5, 3, 6, 4}))
+	fmt.Println(dp.ClimbStairs2(3))
 
 }
