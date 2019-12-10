@@ -2,13 +2,13 @@
 package main
 
 import (
-	"../BigDataAlgorithm/algorithm/leetCode/dp"
+	"../BigDataAlgorithm/algorithm/leetCode"
 	"fmt"
 )
 
 func main() {
 
 	//ops := "(){[]}"
-	fmt.Println(dp.MinimumTotal([][]int{{2}, {3, 4}, {6, 5, 7}, {4, 1, 8, 3}}))
+	fmt.Println(leetCode.PlusOne([]int{9, 9, 9}))
 
 }
