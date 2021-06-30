@@ -19,7 +19,7 @@ type SyncWriter struct {
 	Writer *bufio.Writer
 }
 
-func main() {
+func Reptile() {
 	//292373
 	//requestUrl := "https://m.xinwanben.com/329/"
 	requestUrl := "http://www.baoziji.cc/22/22233/"
