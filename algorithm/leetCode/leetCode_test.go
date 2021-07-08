@@ -1,6 +1,9 @@
 package leetCode
 
-import "testing"
+import (
+	"reflect"
+	"testing"
+)
 
 func TestFindMinDifference(t *testing.T) {
 	timePoints := []string{"23:59", "00:00"}
@@ -29,4 +32,16 @@ func TestMinDeletionSize(t *testing.T) {
 		t.Errorf("res is 3,not %d", res)
 	}
 
+}
+
+func TestFindWords(t *testing.T) {
+	words := []string{"Hello", "Alaska", "Dad", "Peace"}
+	if res := FindWords(words); !reflect.DeepEqual(res, []string{"Alaska", "Dad"}) {
+		t.Errorf("res is Alaska Dad,not %s", res)
+	}
+
+	words = []string{"omk"}
+	if res := FindWords(words); !reflect.DeepEqual(res, []string{}) {
+		t.Errorf("res is [],not %s", res)
+	}
 }
