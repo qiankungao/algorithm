@@ -55,8 +55,16 @@ func TestShortestToChar(t *testing.T) {
 
 	s = "aaab"
 	c = s[3]
-	if res := ShortestToChar(s, c); !reflect.DeepEqual(res, []int{3,2,1,0}) {
+	if res := ShortestToChar(s, c); !reflect.DeepEqual(res, []int{3, 2, 1, 0}) {
 		t.Errorf("res is [3,2,1,0],not %d", res)
 	}
+
+}
+
+func TestSubdomainVisits(t *testing.T) {
+	//cpdomains := []string{"900 google.mail.com", "50 yahoo.com", "1 intel.mail.com", "5 wiki.org"}
+	cpdomains := []string{"9001 discuss.leetcode.com"}
+	SubdomainVisits(cpdomains)
+
 
 }
