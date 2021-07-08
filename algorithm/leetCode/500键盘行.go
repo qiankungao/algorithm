@@ -2,6 +2,7 @@ package leetCode
 
 import "strings"
 
+//100 30
 func FindWords(words []string) []string {
 
 	res := make(map[int32]int, 26)

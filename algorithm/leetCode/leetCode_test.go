@@ -45,3 +45,18 @@ func TestFindWords(t *testing.T) {
 		t.Errorf("res is [],not %s", res)
 	}
 }
+
+func TestShortestToChar(t *testing.T) {
+	s := "loveleetcode"
+	c := s[3]
+	if res := ShortestToChar(s, c); !reflect.DeepEqual(res, []int{3, 2, 1, 0, 1, 0, 0, 1, 2, 2, 1, 0}) {
+		t.Errorf("res is [3, 2, 1, 0, 1, 0, 0, 1, 2, 2, 1, 0],not %d", res)
+	}
+
+	s = "aaab"
+	c = s[3]
+	if res := ShortestToChar(s, c); !reflect.DeepEqual(res, []int{3,2,1,0}) {
+		t.Errorf("res is [3,2,1,0],not %d", res)
+	}
+
+}
