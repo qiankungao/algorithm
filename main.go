@@ -2,24 +2,21 @@ package main
 
 import "fmt"
 
-func main() {
-	// 1 5    10 15 20
-	//      6
-	s := []int{1, 5, 10, 15, 20}
-	fmt.Println(searchInsert(s, 5))
+type Student struct {
+	age int
 }
-func searchInsert(nums []int, target int) int {
-	n := len(nums)
-	left, right := 0, n-1
-	ans := n
-	for left <= right {
-		mid := (right-left)>>1 + left
-		if target <= nums[mid] {
-			ans = mid
-			right = mid - 1
-		} else {
-			left = mid + 1
-		}
-	}
-	return ans
+
+func main() {
+	s := ConvShopCell()
+
+	fmt.Println(s[1].age == 0)
+}
+
+func ConvShopCell() map[int]Student {
+	s := make(map[int]Student, 0)
+	s[1] = Student{10}
+	s[2] = Student{11}
+	s[3] = Student{13}
+	s[4] = Student{103}
+	return s
 }
