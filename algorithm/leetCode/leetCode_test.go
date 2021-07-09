@@ -81,3 +81,11 @@ func TestNumberOfLines(t *testing.T) {
 	}
 
 }
+
+func TestFindRestaurant(t *testing.T) {
+	one := []string{"Shogun", "Tapioca Express", "Burger King", "KFC"}
+	two := []string{"Tapioca Express", "Shogun", "Burger King"}
+	if res := FindRestaurant(one, two); !reflect.DeepEqual(res, []string{"Shogun"}) {
+		t.Errorf("res is [\"Shogun\"],not %s", res)
+	}
+}
