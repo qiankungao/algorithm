@@ -1,7 +1,6 @@
 package leetCode
 
 func FindRestaurant(list1 []string, list2 []string) []string {
-	//
 	if len(list1) > len(list2) {
 		list1, list2 = list2, list1
 	}
