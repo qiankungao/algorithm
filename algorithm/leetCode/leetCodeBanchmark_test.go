@@ -16,3 +16,10 @@ func BenchmarkNumberOfLines(b *testing.B) {
 		NumberOfLines(widths, s)
 	}
 }
+
+func BenchmarkUniqueMorseRepresentations(b *testing.B) {
+	words := []string{"gin", "zen", "gig", "msg"}
+	for i := 0; i < b.N; i++ {
+		UniqueMorseRepresentations(words)
+	}
+}
