@@ -8,3 +8,11 @@ func BenchmarkFindMinDifference(b *testing.B) {
 		FindMinDifference(timePoints)
 	}
 }
+
+func BenchmarkNumberOfLines(b *testing.B) {
+	widths := []int{10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10}
+	s := "abcdefghijklmnopqrstuvwxyz"
+	for i := 0; i < b.N; i++ {
+		NumberOfLines(widths, s)
+	}
+}

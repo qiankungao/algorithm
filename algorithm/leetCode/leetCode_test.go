@@ -65,6 +65,19 @@ func TestSubdomainVisits(t *testing.T) {
 	//cpdomains := []string{"900 google.mail.com", "50 yahoo.com", "1 intel.mail.com", "5 wiki.org"}
 	cpdomains := []string{"9001 discuss.leetcode.com"}
 	SubdomainVisits(cpdomains)
+}
 
+func TestNumberOfLines(t *testing.T) {
+	widths := []int{10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10}
+	s := "abcdefghijklmnopqrstuvwxyz"
+	if res := NumberOfLines(widths, s); !reflect.DeepEqual(res, []int{3, 60}) {
+		t.Errorf("res is [3,60],not %d", res)
+	}
+
+	widths = []int{4, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10}
+	s = "bbbcccdddaaa"
+	if res := NumberOfLines(widths, s); !reflect.DeepEqual(res, []int{2, 4}) {
+		t.Errorf("res is [2,4],not %d", res)
+	}
 
 }
