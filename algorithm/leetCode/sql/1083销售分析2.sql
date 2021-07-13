@@ -1,0 +1,2 @@
+select s.buyer_id from Sales as s join Product as p on s.product_id = p.product_id GROUP BY S.buyer_id
+having count(if(p.product_name='S8',true,null))>=1 and count(if(p.product_name='iphone',true,null))=0 ;
