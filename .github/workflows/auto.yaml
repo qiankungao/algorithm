@@ -20,6 +20,6 @@ jobs:
     steps:
       - name: test
         run:
-        echo ${{needs.check-file.outputs.output1}}
+          echo ${{needs.check-file.outputs.output1}}
 
 
