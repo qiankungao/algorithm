@@ -7,12 +7,12 @@ jobs:
   check-file:
     runs-on: ubuntu-latest
     outputs:
-      output1: ${{ steps.check_files.outputs.output1 }}
+      output1: ${{ steps.check_files.outputs.test }}
     steps:
       - name: Checkout
         #        uses: actions/checkout@master
         id: check_files
-        run: echo "::set-output name=output1::hello"
+        run: echo "::set-output name=test::hello"
   sync-file:
     runs-on: ubuntu-latest
     needs: check-file
