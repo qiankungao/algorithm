@@ -16,8 +16,11 @@ jobs:
   sync-file:
     runs-on: ubuntu-latest
     needs: check-file
+    if: needs.check-file.outputs.output1 == 'hello'
     steps:
       - name: test
-        run: echo ${{needs.check-file.outputs.output1}}
+        run: |
+        echo " zhixingdaozheli"
+        echo ${{needs.check-file.outputs.output1}}
 
 
