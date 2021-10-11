@@ -18,7 +18,7 @@ jobs:
     needs: check-file
     step:
       - name: Sync
-        - uses: actions/checkout@master
+        uses: actions/checkout@master
       - run: echo ${{needs.check-file.outputs.output1}}
 
 
