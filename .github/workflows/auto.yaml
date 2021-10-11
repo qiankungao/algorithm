@@ -20,7 +20,6 @@ jobs:
     steps:
       - name: test
         run: |
-        echo " zhixingdaozheli"
         echo ${{needs.check-file.outputs.output1}}
 
 
