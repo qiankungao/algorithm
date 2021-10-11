@@ -7,7 +7,7 @@ jobs:
   check-file:
     runs-on: ubuntu-latest
     outputs:
-      output1: ${{ steps.Checkout.outputs.test }}
+      output1: ${{ steps.Checkout.outputs.output1 }}
     steps:
       - name: Checkout
         #        uses: actions/checkout@master
