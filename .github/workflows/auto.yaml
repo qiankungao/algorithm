@@ -17,6 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: check-file
     step:
+      - uses: actions/checkout@master
       - run: echo ${{needs.check-file.outputs.output1}}
 
 
