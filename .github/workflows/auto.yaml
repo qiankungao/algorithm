@@ -19,7 +19,7 @@ jobs:
     if: needs.check-file.outputs.output1 == 'hello'
     steps:
       - name: test
-        run: |
+        run:
         echo ${{needs.check-file.outputs.output1}}
 
 
