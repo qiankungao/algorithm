@@ -5,7 +5,7 @@ go 1.15
 require (
 	github.com/aarzilli/golua v0.0.0-20210507130708-11106aa57765
 	github.com/anaskhan96/soup v1.2.4
-	github.com/gin-gonic/gin v1.7.4
+	github.com/gin-gonic/gin v1.7.7
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/json-iterator/go v1.1.11 // indirect
 	github.com/kr/pretty v0.1.0 // indirect
